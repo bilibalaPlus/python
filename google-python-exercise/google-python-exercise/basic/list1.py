@@ -36,8 +36,12 @@
 # 2.字符串的第一个字符等于最后一个字符
 # 注：python语言中没有 ++ 操作符，但是有 += 操作符。
 def match_ends(words):
-    # +++your code here+++
-    return
+    cnt = 0
+    for wrd in words:
+        if(len(wrd) >= 2):
+            if(wrd[0]==wrd[len(wrd)-1]):
+                cnt += 1
+    return cnt
 
 
 # B. front_x
@@ -56,8 +60,16 @@ def match_ends(words):
 #       返回 ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
 # 提示：可以通过生成两个列表并对它们分别进行排序，然后再把它们连接起来。
 def front_x(words):
-    # +++your code here+++
-    return
+    wrdnx=list()
+    wrdx=list()
+    for wrd in words:
+        if(wrd[0] == 'x'):
+            wrdx.append(wrd)
+        else:
+            wrdnx.append(wrd)
+    wrdx.sort()
+    wrdnx.sort()
+    return wrdx+wrdnx
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
@@ -72,8 +84,8 @@ def front_x(words):
 #       返回：[(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # 提示：使用自定义键=函数从每个元组提取最后一个元素。
 def sort_last(tuples):
-    # +++your code here+++
-    return
+    tuples.sort(key=lambda tuple:tuple[-1])
+    return tuples
 
 
 # Simple provided test() function used in main() to print
@@ -83,18 +95,18 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+    print('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
 
 
 # Calls the above functions with interesting inputs.
 def main():
-    print 'match_ends'
+    print('match_ends')
     test(match_ends(['aba', 'xyz', 'aa', 'x', 'bbb']), 3)
     test(match_ends(['', 'x', 'xy', 'xyx', 'xx']), 2)
     test(match_ends(['aaa', 'be', 'abc', 'hello']), 1)
 
-    print
-    print 'front_x'
+    print()
+    print('front_x')
     test(front_x(['bbb', 'ccc', 'axx', 'xzz', 'xaa']),
          ['xaa', 'xzz', 'axx', 'bbb', 'ccc'])
     test(front_x(['ccc', 'bbb', 'aaa', 'xcc', 'xaa']),
@@ -103,8 +115,8 @@ def main():
          ['xanadu', 'xyz', 'aardvark', 'apple', 'mix'])
 
        
-    print
-    print 'sort_last'
+    print()
+    print('sort_last')
     test(sort_last([(1, 3), (3, 2), (2, 1)]),
          [(2, 1), (3, 2), (1, 3)])
     test(sort_last([(2, 3), (1, 2), (3, 1)]),
