@@ -19,8 +19,14 @@
 #       输入[1, 1, 2, 2, 3, 3, 3] 返回 [1, 2, 3]
 # 新建一个列表 或者 修改原来的列表返回均可。
 def remove_adjacent(nums):
-    # +++your code here+++
-    return
+    if(len(nums)==1 or len(nums)==0):
+        return nums
+    new_nums = list()
+    new_nums.append(nums[0])
+    for i in range(1,len(nums)):
+        if(nums[i]!=nums[i-1]):
+            new_nums.append(nums[i])
+    return new_nums
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
@@ -58,18 +64,18 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+    print('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
 
 
 # Calls the above functions with interesting inputs.
 def main():
-    print 'remove_adjacent'
+    print('remove_adjacent')
     test(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
     test(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
     test(remove_adjacent([]), [])
 
     print
-    print 'linear_merge'
+    print('linear_merge')
     test(linear_merge(['aa', 'xx', 'zz'], ['bb', 'cc']),
          ['aa', 'bb', 'cc', 'xx', 'zz'])
     test(linear_merge(['aa', 'xx'], ['bb', 'cc', 'zz']),

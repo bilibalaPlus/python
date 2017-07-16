@@ -75,8 +75,10 @@ import sys
 
 def mimic_dict(filename):
     """Returns mimic dict mapping each word to list of words which follow it."""
-    # +++your code here+++
-    return
+    textfile = open(filename,'r')
+    words = textfile.read()
+
+    return words
 
 
 def print_mimic(mimic_dict, word):
@@ -88,7 +90,7 @@ def print_mimic(mimic_dict, word):
 # Provided main(), calls mimic_dict() and mimic()
 def main():
     if len(sys.argv) != 2:
-        print 'usage: ./mimic.py file-to-read'
+        print('usage: ./mimic.py file-to-read')
         sys.exit(1)
 
     dict = mimic_dict(sys.argv[1])
