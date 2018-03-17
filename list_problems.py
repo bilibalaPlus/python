@@ -1,6 +1,6 @@
 """Some exercises involving lists.
-modified in master
-creating lists
+
+`creating lists
 ==============
 a='A'
 b='B'
