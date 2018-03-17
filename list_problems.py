@@ -1,5 +1,5 @@
 """Some exercises involving lists.
-
+modified in dev
 creating lists
 ==============
 a='A'
